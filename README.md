@@ -15,3 +15,15 @@ npm install
 
 ## Running
 npm start
+
+# Exercise Nº2
+Name: Bubble Sort
+Version: 1.0.0
+
+## Instaling
+cd bubble-sort
+
+npm install
+
+## Running
+npm start
