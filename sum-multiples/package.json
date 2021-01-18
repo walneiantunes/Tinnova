@@ -1,0 +1,21 @@
+{
+  "name": "sum-multiples",
+  "version": "1.0.0",
+  "description": "Tinnova challenge",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf ./build && tsc",
+    "sum-multiples": "node build/index.js"
+  },
+  "author": "Walnei Antunes",
+  "license": "UNLICENSED",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^14.14.21",
+    "rimraf": "^3.0.2",
+    "ts-node": "^9.1.1",
+    "ts-node-dev": "^1.1.1",
+    "tsdef": "0.0.14",
+    "typescript": "^4.1.3"
+  }
+}

@@ -39,3 +39,18 @@ npm install
 
 ## Running
 npm start
+
+# Exercise Nº4
+Name: Sum Multiples
+Version: 1.0.0
+
+## Instaling
+cd sum-multiples
+
+npm install
+
+npm run build
+
+## Running
+npm run sum-multiples [number]
+ex: npm run sum-multiples 10
