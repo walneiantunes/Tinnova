@@ -27,3 +27,15 @@ npm install
 
 ## Running
 npm start
+
+# Exercise Nº3
+Name: Fatorial
+Version: 1.0.0
+
+## Instaling
+cd fatorial
+
+npm install
+
+## Running
+npm start

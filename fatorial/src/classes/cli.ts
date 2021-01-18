@@ -9,7 +9,7 @@ export class Cli{
     }
     drawnHeader():void {
         console.log(chalk.blue(figlet.textSync("Tinnova")))
-        console.log(chalk.redBright("Exercise #2 - Bubble Sort"))
+        console.log(chalk.redBright("Exercise #3 - Fatorial"))
         console.log(chalk.redBright("By walnei.antunes@gmail.com"))
     }
 

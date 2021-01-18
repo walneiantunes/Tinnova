@@ -11,9 +11,12 @@ async function main(){
     
     cli.init()
     
-    const itens = await getItensQuantity()
+    let itens: number | undefined
+    do {
+        itens = await getItensQuantity()
+    }while(itens===undefined)
     
-    await addNewValues(itens)
+    await addNewValues(itens||0)
     
     console.log("Os valores escolhidos foram:")
     console.log(`[${bubble.values.join(', ')}]`)
@@ -32,7 +35,7 @@ function stop() {
     process.exit()
 }
 
-async function getItensQuantity(): Promise<number>{
+async function getItensQuantity(): Promise<number|undefined>{
     const itens = Number(await cli.prompt("Quantos itens você deseja inserir?(2-100)","input"))
     
     const message: Array<string> = []
@@ -55,7 +58,7 @@ async function getItensQuantity(): Promise<number>{
         
         if (confirmation) { 
             cli.init()
-            await getItensQuantity()
+            return undefined
          }
         else {
             stop()
@@ -65,20 +68,25 @@ async function getItensQuantity(): Promise<number>{
 }
 
 async function getNewValue(): Promise<number>{
-    const result = await cli.prompt("Informe o valor desejado ou f para finalizar", "input")
+    let result: unknown
+    
+    let value: number
+    
+    do {
+        const result = await cli.prompt("Informe o valor desejado ou f para finalizar", "input")
 
-    if (result === "F" || result === "f") {
-        console.log("OK, chega de ordenar por enquanto ;)")
-        process.exit()
-    }
+        if (result === "F" || result === "f") {
+            stop()
+        }
 
-    const value=Number(result)
+        value = Number(result)
 
-    if (isNaN(value)) {
-        console.log(chalk.blueBright("Opss, o valor informado não é válido:"))
-        console.log('   -São aceitos somente números >= zero' )
-        await getNewValue()
-    }
+        if (isNaN(value) || value < 0) {
+            console.log(chalk.blueBright("Opss, o valor informado não é válido:"))
+            console.log('   -São aceitos somente números >= zero')
+        }
+        
+    }while(isNaN(value) || value < 0)
 
     return value
 }
